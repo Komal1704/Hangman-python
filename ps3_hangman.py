@@ -28,50 +28,6 @@ def chooseWord(wordlist):
     """
     return random.choice(wordlist)
 wordlist = loadWords()
-
-def isWordGuessed(secretWord, lettersGuessed):
-    '''
-    secretWord: string, the word the user is guessing
-    lettersGuessed: list, what letters have been guessed so far
-    returns: boolean, True if all the letters of secretWord are in lettersGuessed;
-      False otherwise
-    '''
-    for char in secretWord:
-        if char not in lettersGuessed:
-            return False
-    return True
-
-
-def getGuessedWord(secretWord, lettersGuessed):
-    '''
-    secretWord: string, the word the user is guessing
-    lettersGuessed: list, what letters have been guessed so far
-    returns: string, comprised of letters and underscores that represents
-      what letters in secretWord have been guessed so far.
-    '''
-    guessword=""
-    for char in secretWord:
-        if char in lettersGuessed:
-            guessword+=char
-        else:
-            guessword+="_"
-    return guessword   
-
-
-def getAvailableLetters(lettersGuessed):
-    '''
-    lettersGuessed: list, what letters have been guessed so far
-    returns: string, comprised of letters that represents what letters have not
-      yet been guessed.
-    '''
-    string="abcdefghijklmnopqrstuvwxyz"
-    finalstring=""
-    for letter in string:
-        if letter not in lettersGuessed:
-            finalstring+=letter
-    
-    return finalstring        
-
 def hangman(secretWord):
     print("Welcome to the game Hangman!")
     print("I am thinking of a word that is " + str(len(secretWord)) + " letters long.")
